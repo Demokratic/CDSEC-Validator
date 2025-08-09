@@ -1,0 +1,48 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Configuration pour scraper le CDSEC Validator Node
+  - job_name: 'cdsec-validator'
+    static_configs:
+      - targets: ['cdsec-validator:3001']
+    metrics_path: '/api/monitoring/metrics'
+    scrape_interval: 30s
+    scrape_timeout: 10s
+    scheme: http
+    
+    # Headers d'authentification (à adapter selon votre configuration)
+    # basic_auth:
+    #   username: 'admin'
+    #   password: 'admin123'
+
+  # Configuration pour scraper les métriques système Node.js
+  - job_name: 'cdsec-validator-health'
+    static_configs:
+      - targets: ['cdsec-validator:3001']
+    metrics_path: '/api/monitoring/health'
+    scrape_interval: 15s
+    scrape_timeout: 5s
+    scheme: http
+
+  # Configuration pour scraper Prometheus lui-même
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+# Configuration des alertes (optionnel)
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Règles d'alerte pour le CDSEC Validator
+rule_files:
+  - "alert_rules.yml"
+

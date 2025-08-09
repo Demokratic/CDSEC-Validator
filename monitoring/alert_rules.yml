@@ -1,0 +1,95 @@
+groups:
+  - name: cdsec_validator_alerts
+    rules:
+      # Alerte si le service est down
+      - alert: CDSECValidatorDown
+        expr: up{job="cdsec-validator"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "CDSEC Validator Node est hors ligne"
+          description: "Le service CDSEC Validator Node n'est pas accessible depuis {{ $labels.instance }} depuis plus d'1 minute."
+
+      # Alerte si l'utilisation mémoire est élevée
+      - alert: HighMemoryUsage
+        expr: (cdsec_validator_memory_usage_percent > 90)
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Utilisation mémoire élevée"
+          description: "L'utilisation mémoire du CDSEC Validator Node est à {{ $value }}% depuis plus de 5 minutes."
+
+      # Alerte si le taux d'erreur de validation est élevé
+      - alert: HighValidationErrorRate
+        expr: (cdsec_validator_validation_error_rate > 10)
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Taux d'erreur de validation élevé"
+          description: "Le taux d'erreur de validation est de {{ $value }}% depuis plus de 2 minutes."
+
+      # Alerte si aucune validation n'a été effectuée récemment
+      - alert: NoRecentValidations
+        expr: (time() - cdsec_validator_last_validation_timestamp > 3600)
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Aucune validation récente"
+          description: "Aucune validation n'a été effectuée depuis plus d'1 heure."
+
+      # Alerte si des anomalies critiques sont détectées
+      - alert: CriticalAnomaliesDetected
+        expr: cdsec_validator_critical_anomalies > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Anomalies critiques détectées"
+          description: "{{ $value }} anomalies critiques ont été détectées dans le système."
+
+      # Alerte si l'API CDSEC n'est pas accessible
+      - alert: CDSECAPIUnreachable
+        expr: cdsec_validator_cdsec_api_healthy == 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "API CDSEC non accessible"
+          description: "L'API CDSEC n'est pas accessible depuis plus de 2 minutes."
+
+      # Alerte si la base de données n'est pas accessible
+      - alert: DatabaseUnhealthy
+        expr: cdsec_validator_database_healthy == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Base de données non accessible"
+          description: "La base de données SQLite n'est pas accessible depuis plus d'1 minute."
+
+  - name: system_alerts
+    rules:
+      # Alerte si l'uptime est faible (redémarrage récent)
+      - alert: RecentRestart
+        expr: (time() - process_start_time_seconds) < 300
+        for: 0m
+        labels:
+          severity: info
+        annotations:
+          summary: "Redémarrage récent du service"
+          description: "Le service CDSEC Validator Node a redémarré il y a moins de 5 minutes."
+
+      # Alerte si le nombre de connexions actives est élevé
+      - alert: HighActiveConnections
+        expr: cdsec_validator_active_connections > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Nombre élevé de connexions actives"
+          description: "Le nombre de connexions actives ({{ $value }}) est élevé depuis plus de 5 minutes."
+
