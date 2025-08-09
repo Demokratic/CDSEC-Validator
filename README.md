@@ -229,6 +229,38 @@ npm test
 
 Garantir que CDSEC reste fiable, transparent et infalsifiable en délégant la vérification des données à des entités citoyennes indépendantes, à travers une architecture multi-validateur robuste et ouverte.
 
+## 📋 Liste d’associations potentielles pour héberger un CDSEC Validator Node
+
+Voici une liste (non exhaustive) d’associations citoyennes, hacktivistes, ou techs qui pourraient héberger un ou plusieurs nœuds de validation :
+
+| Nom de l'association            | Description rapide                                                | Site / Contact                     |
+|-------------------------------|--------------------------------------------------------------------|------------------------------------|
+| **La Quadrature du Net**       | Défense des libertés numériques, techs très compétents.           | https://www.laquadrature.net/      |
+| **Regards Citoyens**           | Transparence de la vie publique, experts en open data.            | https://www.regardscitoyens.org/   |
+| **Framasoft**                  | Logiciels libres, Internet libre et décentralisé.                 | https://framasoft.org/             |
+| **Code for France**            | Développeurs citoyens pour l’intérêt général.                     | https://codefor.fr/                |
+| **Open Knowledge Foundation**  | Ouverture des données publiques.                                  | https://okfn.org/                  |
+| **Transparency International France** | Lutte contre la corruption, très alignés avec CDSEC.         | https://transparency-france.org/   |
+| **Collectif ANTICOR**          | Lutte contre la corruption politique.                             | https://www.anticor.org/           |
+| **Fédération FDN**             | Fournisseurs d’accès à Internet associatifs (infrastructure).     | https://www.ffdn.org/              |
+| **Hackstub / Alsace Réseau Neutre** | Hacker space + hébergeur associatif.                        | https://www.arn-fai.net/           |
+| **Zicmuse / les amis de l’autohébergement** | Militants de la décentralisation technique.           | (Contact local recommandé)         |
+
+---
+
+
+## 🤝 Comment participer ?
+
+Si votre association souhaite :
+- héberger un **CDSEC Validator Node**,
+- contribuer au **code ou au monitoring**,
+- ou faire de la **pédagogie citoyenne** autour du vote et des données,
+
+👉 **Contactez le projet CDSEC ou proposez une PR sur GitHub !**
+
+---
+
+
 ## 📄 Licence
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
