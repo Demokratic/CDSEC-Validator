@@ -232,6 +232,7 @@ Garantir que CDSEC reste fiable, transparent et infalsifiable en délégant la v
 ## 📋 Liste d’associations potentielles pour héberger un CDSEC Validator Node
 
 Voici une liste (non exhaustive) d’associations citoyennes, hacktivistes, ou techs qui pourraient héberger un ou plusieurs nœuds de validation :
+Je n’ai pas encore eu le temps de les contacter, mais ce sont en tout cas de bons interlocuteurs, qui pourraient reprendre l’idée du projet et la faire avancer.
 
 | Nom de l'association            | Description rapide                                                | Site / Contact                     |
 |-------------------------------|--------------------------------------------------------------------|------------------------------------|
