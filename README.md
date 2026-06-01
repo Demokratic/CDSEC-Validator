@@ -252,6 +252,10 @@ Je n’ai pas encore eu le temps de les contacter, mais ce sont en tout cas de b
 
 ## 🤝 Comment participer ?
 
+J’ai besoin de fonds pour terminer ce projet. 
+Si vous souhaitez faire un don ou m’aider à le financer, vous pouvez m’envoyer un mail. 
+networkstuff2025@proton.me
+
 Si votre association souhaite :
 - héberger un **CDSEC Validator Node**,
 - contribuer au **code ou au monitoring**,
